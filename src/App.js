@@ -29,9 +29,12 @@ function App() {
 }
 
 function MyButton() {
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(
+    Number(localStorage.getItem("clickCount")) || 0
+  );
   function handleClick() {
     setCount(count + 1);
+    localStorage.setItem("clickCount", count + 1);
   }
   return (
     // <button>I'm a button, Add one.</button>
